@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.currencyconverter.presentation.view.MainActivity">
+
+    <EditText
+        android:id="@+id/EtConvertRes"
+        android:layout_width="222dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="108dp"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Результат конвертации"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EtConvertTo" />
+
+    <EditText
+        android:id="@+id/EtConvertTo"
+        android:layout_width="222dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="84dp"
+        android:hint="Сумма для конвертации"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/SpinnerConvertRes"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginTop="108dp"
+        android:entries="@array/currency"
+        app:layout_constraintStart_toEndOf="@+id/EtConvertRes"
+        app:layout_constraintTop_toBottomOf="@+id/SpinnerConvertTo" />
+
+    <ImageButton
+        android:id="@+id/BtnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:onClick="onClickConvert"
+        app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EtConvertTo"
+        app:layout_constraintVertical_bias="0.508"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You send"
+        app:layout_constraintBottom_toTopOf="@+id/EtConvertTo"
+        app:layout_constraintStart_toStartOf="@+id/EtConvertTo" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="They get"
+        app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
+        app:layout_constraintStart_toStartOf="@+id/EtConvertRes" />
+
+    <Spinner
+        android:id="@+id/SpinnerConvertTo"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginBottom="108dp"
+        android:entries="@array/currency"
+        app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
+        app:layout_constraintStart_toEndOf="@+id/EtConvertTo" />
+
+    <ImageButton
+        android:id="@+id/BtnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="onClickSave"
+        app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toEndOf="@+id/BtnConvert"
+        app:layout_constraintTop_toBottomOf="@+id/EtConvertTo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
