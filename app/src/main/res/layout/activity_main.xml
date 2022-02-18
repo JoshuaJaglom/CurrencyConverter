@@ -43,13 +43,13 @@
         android:id="@+id/BtnConvert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="64dp"
         android:onClick="onClickConvert"
         app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EtConvertTo"
         app:layout_constraintVertical_bias="0.508"
-        app:srcCompat="@android:drawable/ic_popup_sync" />
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
         android:id="@+id/textView5"
@@ -86,10 +86,23 @@
         android:onClick="onClickSave"
         app:layout_constraintBottom_toTopOf="@+id/EtConvertRes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/BtnConvert"
         app:layout_constraintTop_toBottomOf="@+id/EtConvertTo"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <ImageButton
+        android:id="@+id/BtnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickUpdate"
+        app:layout_constraintBottom_toTopOf="@+id/SpinnerConvertRes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toEndOf="@+id/BtnSave"
+        app:layout_constraintTop_toBottomOf="@+id/SpinnerConvertTo"
+        app:layout_constraintVertical_bias="0.508"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

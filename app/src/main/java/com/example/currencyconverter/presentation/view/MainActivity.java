@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         if (checkConnection(getApplication().getApplicationContext())) {
             setContentView(view);
         } else {
+            binding.BtnSave.setVisibility(View.GONE);
+            binding.BtnUpdate.setVisibility(View.GONE);
             binding.SpinnerConvertTo.setAdapter(null);
             binding.SpinnerConvertRes.setAdapter(null);
             mainViewModel.getConvertingCurrenciesFromDb().observe(this, v -> {
@@ -87,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
                         result = Double.parseDouble(binding.EtConvertTo.getText().toString())
                                 * conversionRate;
                         binding.EtConvertRes.setText(Double.toString(result));
-                        new Thread(() -> mainViewModel.updateCurrency(conversionRate,
-                                finalCurrencyTo,
-                                finalCurrencyRes)).start();
                     });
         } else {
             currencyTo = binding.SpinnerConvertTo.getSelectedItem().toString();
@@ -122,6 +121,22 @@ public class MainActivity extends AppCompatActivity {
                             mainViewModel.saveCurrency(currencyDTO);
                         }
                     });
+        });
+    }
+
+    public void onClickUpdate(View view) {
+        String currencyTo;
+        String currencyRes;
+        currencyTo = getResources().getStringArray(R.array.currency)
+                [binding.SpinnerConvertTo.getSelectedItemPosition()];
+        currencyRes = getResources().getStringArray(R.array.currency)
+                [binding.SpinnerConvertRes.getSelectedItemPosition()];
+        String finalCurrencyTo = currencyTo;
+        String finalCurrencyRes = currencyRes;
+        mainViewModel.getValue(currencyTo, currencyRes).observe(this, conversionRate -> {
+            new Thread(() -> mainViewModel.updateCurrency(conversionRate,
+                    finalCurrencyTo,
+                    finalCurrencyRes)).start();
         });
     }
 
