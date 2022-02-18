@@ -43,4 +43,10 @@ public class MainViewModel extends AndroidViewModel {
     public void saveCurrency(CurrencyDTO currencyDTO) {
         currencyRepository.insertCurrencies(currencyDTO);
     }
+
+    public void updateCurrency(Double conversionRate,
+                               String convertingCurrency,
+                               String currencyToConvert) {
+        currencyRepository.updateConversionRate(conversionRate, convertingCurrency, currencyToConvert);
+    }
 }

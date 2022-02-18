@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Currency")
 public class CurrencyDTO {
     @ColumnInfo(name = "currencyId")
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     private Integer currencyId;
     @ColumnInfo(name = "convertingCurrency")
     private String convertingCurrency;

@@ -5,6 +5,8 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
+
 import com.example.currencyconverter.domain.model.CurrencyDTO;
 
 import java.util.List;
@@ -24,4 +26,8 @@ public interface CurrencyDAO {
 
     @Query("Select convertingCurrency From Currency")
     LiveData<List<CurrencyDTO>> getConvertingCurrency();
+
+    @Query("Update Currency Set conversionRate =:conversionRate " +
+            "Where convertingCurrency = :convertingCurrency and currencyToConvert = :currencyToConvert")
+    void updateConversionRate(Double conversionRate, String convertingCurrency, String currencyToConvert);
 }

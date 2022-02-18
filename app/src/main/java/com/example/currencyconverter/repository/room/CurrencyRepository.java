@@ -33,4 +33,10 @@ public class CurrencyRepository {
         return currencyDAO.getConvertingCurrency();
     }
 
+    public void updateConversionRate(Double conversionRate, String convertingCurrency,
+                                     String currencyToConvert) {
+        CurrencyRoomDatabase.databaseWriteExecutor.execute(() -> {
+            currencyDAO.updateConversionRate(conversionRate, convertingCurrency, currencyToConvert);
+        });
+    }
 }
